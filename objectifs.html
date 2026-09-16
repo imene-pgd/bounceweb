@@ -5,11 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OBJECTIFS | Bounce — Pourquoi Bounce existe</title>
     <meta name="description" content="Pourquoi Bounce ? 70% des gens abandonnent leur salle après 3 mois. Bounce réinvente le fitness avec l'immersion, la musique et le lâcher-prise.">
-    <meta property="og:title" content="OBJECTIFS | Bounce Movement">
-    <meta property="og:description" content="Le fitness a oublié sa culture. Bounce lui redonne la parole.">
-    <meta property="og:image" content="bouncelogo1.png">
-    <meta property="og:type" content="website">
-    <meta property="og:locale" content="fr_FR">
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@400;500;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
@@ -20,22 +15,33 @@
 <nav class="nav-fixed">
     <div class="nav-container">
         <img src="bouncelogo1.png" class="nav-logo" alt="Bounce">
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
         <div class="menu">
             <a href="index.html">Accueil</a>
             <a href="team.html">Team</a>
             <a href="objectifs.html" class="active">Objectifs</a>
-            <a href="tarifs.html">Tarifs</a>
+            <a href="evenements.html">Événements</a>
+            <a href="partenaires.html">Partenaires</a>
             <a href="https://www.instagram.com/bounce.movement/" target="_blank" rel="noopener noreferrer" class="nav-insta">Instagram</a>
         </div>
     </div>
 </nav>
+<div class="nav-overlay" id="navOverlay">
+    <a href="index.html">Accueil</a>
+    <a href="team.html">Team</a>
+    <a href="objectifs.html">Objectifs</a>
+    <a href="evenements.html">Événements</a>
+    <a href="partenaires.html">Partenaires</a>
+    <a href="https://www.instagram.com/bounce.movement/" target="_blank" rel="noopener noreferrer" class="nav-insta">Instagram</a>
+</div>
 
 <!-- HEADER -->
 <section class="section-pad" style="background:#050507; padding-top:160px; text-align:center;">
     <span class="section-label">Pourquoi Bounce existe</span>
     <h1 class="section-title reveal">Arrête de "devoir" faire du sport.<br>Commence à en avoir besoin.</h1>
 
-    <!-- STATS -->
     <div class="stats-grid reveal">
         <div class="stat-card">
             <span class="stat-number">70%</span>
@@ -58,15 +64,15 @@
     <div class="grid-3" style="margin-top:40px;">
         <div class="card-black reveal reveal-delay-1">
             <h3>L'esthétique clinique</h3>
-            <p>Des néons blancs et une <strong>ambiance froide</strong> qui génèrent de l'anxiété au lieu du plaisir. On se juge plutôt qu'on se lâche.</p>
+            <p>Une <strong>ambiance froide</strong> qui génère de l'anxiété au lieu du plaisir. On se juge plutôt qu'on se lâche.</p>
         </div>
         <div class="card-black reveal reveal-delay-2">
             <h3>Le jugement technique</h3>
-            <p>45 minutes passées à <strong>juger</strong> son reflet et à se <strong>comparer</strong> plutôt qu'à ressentir le mouvement.</p>
+            <p>45 minutes passées à <strong>se comparer</strong> plutôt qu'à ressentir le mouvement.</p>
         </div>
         <div class="card-black reveal reveal-delay-3">
             <h3>Le vide musical</h3>
-            <p>Des <strong>playlists génériques</strong> qui servent de simple bruit de fond, sans aucune connexion émotionnelle. La musique mérite mieux.</p>
+            <p>Des <strong>playlists génériques</strong> sans connexion émotionnelle. Aujourd'hui beaucoup de salles proposent les mêmes sons électro-pop. Avec Bounce, on apporte une vraie <strong class="purple-text">identité musicale</strong> — plus urbaine, plus immersive.</p>
         </div>
     </div>
 </section>
@@ -75,14 +81,14 @@
 <section class="section-pad" style="background:linear-gradient(to bottom,#060608,#0d0018); text-align:center;">
     <span class="section-label">La solution</span>
     <h2 class="section-title reveal">Avec Bounce ?</h2>
-    <div style="max-width:800px; margin:0 auto; display:flex; flex-direction:column; gap:16px; margin-top:40px;">
+    <div style="max-width:800px; margin:40px auto 0; display:flex; flex-direction:column; gap:16px;">
         <div class="card-black reveal" style="text-align:left;">
             <h3>Fuir l'ennui</h3>
-            <p>Ton cerveau est programmé pour lâcher quand il s'ennuie. En éliminant la solitude des machines et les miroirs, on permet à ton esprit de s'évader totalement.</p>
+            <p>Ton cerveau est programmé pour lâcher quand il s'ennuie. En créant une vraie ambiance de soirée, on permet à ton esprit de s'évader totalement.</p>
         </div>
         <div class="card-black reveal" style="text-align:left;">
             <h3>La thérapie par le son</h3>
-            <p>Le rythme est un médicament. En synchronisant tes mouvements sur des basses profondes, tu libères des tensions que tu ne savais même pas avoir. Hip-Hop, Funk, R&B, Afrobeats, Dancehall — une musique avec une <em>âme</em>.</p>
+            <p>Le rythme est un médicament. Hip-Hop, Funk, R&B, Afrobeats, Dancehall — une musique avec une <em>âme</em> qui synchronise tes mouvements et libère des tensions que tu ne savais même pas avoir.</p>
         </div>
         <div class="card-black reveal" style="text-align:left;">
             <h3>Zéro jugement</h3>
@@ -90,12 +96,11 @@
         </div>
     </div>
 
-    <!-- BESOIN -->
     <blockquote class="citation-box reveal" style="margin-top:60px;">
         <p>Ce dont ils ont besoin : retrouver ce <em class="purple-text">groove authentique</em> dans un cadre<br><strong>Vibrant — Immersif — Premium</strong>.<br>Un lieu où la musique et le plaisir redeviennent le cœur de l'expérience.</p>
     </blockquote>
 
-    <a href="https://www.helloasso.com/associations/da-squad/evenements/workshop-bounce-3" target="_blank" rel="noopener noreferrer" class="main-btn reveal">Rejoindre le mouvement</a>
+    <a href="evenements.html" target="_blank" rel="noopener noreferrer" class="main-btn reveal">Rejoindre le mouvement</a>
 </section>
 
 <footer>
@@ -110,14 +115,19 @@
                 <a href="index.html">Accueil</a>
                 <a href="team.html">Team</a>
                 <a href="objectifs.html">Objectifs</a>
-                <a href="tarifs.html">Tarifs</a>
+                <a href="evenements.html">Événements</a>
+                <a href="partenaires.html">Partenaires</a>
             </div>
         </div>
         <div>
             <p class="footer-col-title">Contact</p>
-            <p class="footer-contact-item"><a href="https://www.instagram.com/bounce.movement/" target="_blank">@bounce.movement</a></p>
+            <p class="footer-contact-item"><a href="https://www.instagram.com/bounce.movement/" target="_blank">Instagram — @bounce.movement</a></p>
+            <p class="footer-contact-item"><a href="https://www.tiktok.com/@bounce.movement" target="_blank">TikTok — @bounce.movement</a></p>
+            <p class="footer-contact-item"><a href="https://www.facebook.com/bounce.movement" target="_blank">Facebook — Bounce Movement</a></p>
             <p class="footer-contact-item"><a href="mailto:bouncemovement.contact@gmail.com">bouncemovement.contact@gmail.com</a></p>
-            <p class="footer-contact-item">06 98 19 15 95</p>
+            <p class="footer-contact-item" style="margin-top:14px; padding-top:14px; border-top:1px solid rgba(255,255,255,0.06);">
+                <a href="mailto:bouncemovement.contact@gmail.com" style="color:var(--purple);">Organiser un workshop pro →</a>
+            </p>
         </div>
     </div>
     <p class="footer-copy">© 2026 Bounce Movement — Lyon</p>
@@ -128,6 +138,21 @@
         entries.forEach(e => { if (e.isIntersecting) e.target.classList.add("visible"); });
     }, { threshold: 0.05, rootMargin: "0px 0px -40px 0px" });
     document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+
+    const hamburger = document.getElementById('hamburger');
+    const navOverlay = document.getElementById('navOverlay');
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('open');
+        navOverlay.classList.toggle('open');
+        document.body.style.overflow = navOverlay.classList.contains('open') ? 'hidden' : '';
+    });
+    document.querySelectorAll('#navOverlay a').forEach(a => {
+        a.addEventListener('click', () => {
+            hamburger.classList.remove('open');
+            navOverlay.classList.remove('open');
+            document.body.style.overflow = '';
+        });
+    });
 </script>
 </body>
 </html>

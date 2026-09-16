@@ -22,34 +22,50 @@
 <nav class="nav-fixed">
     <div class="nav-container">
         <img src="bouncelogo1.png" class="nav-logo" alt="Bounce">
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
         <div class="menu">
             <a href="index.html" class="active">Accueil</a>
             <a href="team.html">Team</a>
             <a href="objectifs.html">Objectifs</a>
-            <a href="tarifs.html">Tarifs</a>
+            <a href="evenements.html">Événements</a>
+            <a href="partenaires.html">Partenaires</a>
             <a href="https://www.instagram.com/bounce.movement/" target="_blank" rel="noopener noreferrer" class="nav-insta">Instagram</a>
         </div>
     </div>
 </nav>
+<div class="nav-overlay" id="navOverlay">
+    <a href="index.html">Accueil</a>
+    <a href="team.html">Team</a>
+    <a href="objectifs.html">Objectifs</a>
+    <a href="evenements.html">Événements</a>
+    <a href="partenaires.html">Partenaires</a>
+    <a href="https://www.instagram.com/bounce.movement/" target="_blank" rel="noopener noreferrer" class="nav-insta">Instagram</a>
+</div>
 
-<!-- HERO -->s
+<!-- HERO -->
 <section class="hero">
-    <video autoplay muted loop playsinline class="bg-video" preload="none">
-        <source src="video1.mp4" type="video/mp4">
+    <video id="heroVideo" autoplay muted loop playsinline class="bg-video" preload="auto">
+        <source src="video1compress.mp4" type="video/mp4">
     </video>
     <div class="overlay"></div>
     <h1 class="bounce-title">BOUNCE</h1>
+    <button class="sound-btn" id="soundBtn" aria-label="Activer le son">
+        <svg id="iconMuted" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
+        <svg id="iconSound" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+    </button>
 </section>
 
 <!-- PLUS QU'UN COURS -->
 <section class="section-pad" style="background:#060608; text-align:center;">
     <span class="section-label reveal">Get The Movement</span>
     <h2 class="section-title reveal">Plus qu'un cours</h2>
-    <p class="section-intro reveal" style="margin-bottom:40px;">On a cassé les codes de la salle de sport traditionnelle. Ici, pas de miroirs intimidants, pas de jugements. On remplace la corvée par la <strong>vibration</strong>.</p>
+    <p class="section-intro reveal" style="margin-bottom:40px;">La nouvelle génération de cardio-dance. Là où le fitness rencontre le hip-hop, et où la danse devient une véritable <strong>expérience sportive</strong>.</p>
     <div class="grid-3">
         <div class="card-black reveal reveal-delay-1">
             <h3>Vibe Clubbing</h3>
-            <p>Plonge dans l'obscurité, éclairé seulement par des néons immersifs. Le son est fort, l'énergie est contagieuse. C'est ton moment d'évasion.</p>
+            <p>Plonge dans une ambiance de soirée, où le son est fort, l'énergie est contagieuse et où tu peux complètement déconnecter.</p>
         </div>
         <div class="card-black reveal reveal-delay-2">
             <h3>Liberté Totale</h3>
@@ -69,7 +85,7 @@
     <div class="video-grid">
         <div class="video-card reveal reveal-delay-1">
             <video class="actu-video" controls playsinline preload="metadata" muted>
-                <source src="bounce1.mp4" type="video/mp4">
+                <source src="bounce1compress.mp4" type="video/mp4">
             </video>
             <div class="video-info">
                 <span class="video-tag">Session</span>
@@ -78,7 +94,7 @@
         </div>
         <div class="video-card reveal reveal-delay-2">
             <video class="actu-video" controls playsinline preload="metadata" muted>
-                <source src="itws.mp4" type="video/mp4">
+                <source src="itwscompress.mp4" type="video/mp4">
             </video>
             <div class="video-info">
                 <span class="video-tag">Workshop</span>
@@ -97,7 +113,7 @@
         <span class="section-label">Places limitées</span>
         <h2 class="cta-title">Ready for the<br><span class="purple-text">First Shot ?</span></h2>
         <p class="section-intro" style="margin-bottom:32px;">Le prochain workshop arrive bientôt. Réserve ta place dès maintenant.</p>
-        <a href="https://www.helloasso.com/associations/da-squad/evenements/workshop-bounce-3" target="_blank" rel="noopener noreferrer" class="main-btn">Réserver ma place</a>
+        <a href="evenements.html" target="_blank" rel="noopener noreferrer" class="main-btn">Réserver ma place</a>
         <p class="mention">Réservation obligatoire</p>
     </div>
 </section>
@@ -114,12 +130,18 @@
                 <a href="index.html">Accueil</a>
                 <a href="team.html">Team</a>
                 <a href="objectifs.html">Objectifs</a>
-                <a href="tarifs.html">Tarifs</a>
+                <a href="evenements.html">Événements</a>
             </div>
         </div>
         <div>
             <p class="footer-col-title">Contact</p>
-            <p class="footer-contact-item"><a href="https://www.instagram.com/bounce.movement/" target="_blank">@bounce.movement</a></p>
+            <p class="footer-contact-item"><a href="https://www.instagram.com/bounce.movement/" target="_blank">Instagram — @bounce.movement</a></p>
+            <p class="footer-contact-item"><a href="https://www.tiktok.com/@bounce.movement" target="_blank">TikTok — @bounce.movement</a></p>
+            <p class="footer-contact-item"><a href="https://www.facebook.com/bounce.movement" target="_blank">Facebook — Bounce Movement</a></p>
+            <p class="footer-contact-item"><a href="mailto:bouncemovement.contact@gmail.com">bouncemovement.contact@gmail.com</a></p>
+            <p class="footer-contact-item" style="margin-top:14px; padding-top:14px; border-top:1px solid rgba(255,255,255,0.06);">
+                <a href="mailto:bouncemovement.contact@gmail.com" style="color:var(--purple);">Organiser un workshop pro →</a>
+            </p>
         </div>
     </div>
     <p class="footer-copy">© 2026 Bounce Movement — Lyon</p>
@@ -131,7 +153,18 @@
         setTimeout(() => document.getElementById("loader").classList.add("loader-hidden"), 1500);
     });
 
-    // Scroll reveal — threshold bas pour éviter les trous noirs
+    // Bouton son héro
+    const heroVideo = document.getElementById("heroVideo");
+    const soundBtn  = document.getElementById("soundBtn");
+    const iconMuted = document.getElementById("iconMuted");
+    const iconSound = document.getElementById("iconSound");
+    soundBtn.addEventListener("click", () => {
+        heroVideo.muted = !heroVideo.muted;
+        iconMuted.style.display = heroVideo.muted ? "block" : "none";
+        iconSound.style.display = heroVideo.muted ? "none"  : "block";
+    });
+
+    // Scroll reveal
     const revealObs = new IntersectionObserver((entries) => {
         entries.forEach(e => { if (e.isIntersecting) e.target.classList.add("visible"); });
     }, { threshold: 0.05, rootMargin: "0px 0px -40px 0px" });
@@ -145,6 +178,22 @@
         });
     }, { threshold: 0.4 });
     document.querySelectorAll('.actu-video').forEach(v => videoObs.observe(v));
+
+    // Hamburger menu
+    const hamburger = document.getElementById('hamburger');
+    const navOverlay = document.getElementById('navOverlay');
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('open');
+        navOverlay.classList.toggle('open');
+        document.body.style.overflow = navOverlay.classList.contains('open') ? 'hidden' : '';
+    });
+    document.querySelectorAll('#navOverlay a').forEach(a => {
+        a.addEventListener('click', () => {
+            hamburger.classList.remove('open');
+            navOverlay.classList.remove('open');
+            document.body.style.overflow = '';
+        });
+    });
 </script>
 </body>
 </html>

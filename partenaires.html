@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PARTENAIRES | Bounce Movement</title>
+    <meta name="description" content="Les partenaires de Bounce Movement. Découvre les marques qui font confiance à notre concept.">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@400;500;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="nav-fixed">
+    <div class="nav-container">
+        <img src="bouncelogo1.png" class="nav-logo" alt="Bounce">
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+        <div class="menu">
+            <a href="index.html">Accueil</a>
+            <a href="team.html">Team</a>
+            <a href="objectifs.html">Objectifs</a>
+            <a href="evenements.html">Événements</a>
+            <a href="partenaires.html" class="active">Partenaires</a>
+            <a href="https://www.instagram.com/bounce.movement/" target="_blank" rel="noopener noreferrer" class="nav-insta">Instagram</a>
+        </div>
+    </div>
+</nav>
+<div class="nav-overlay" id="navOverlay">
+    <a href="index.html">Accueil</a>
+    <a href="team.html">Team</a>
+    <a href="objectifs.html">Objectifs</a>
+    <a href="evenements.html">Événements</a>
+    <a href="partenaires.html">Partenaires</a>
+    <a href="https://www.instagram.com/bounce.movement/" target="_blank" rel="noopener noreferrer" class="nav-insta">Instagram</a>
+</div>
+
+<section class="section-pad" style="background:linear-gradient(to bottom,#050507,#0d0018); padding-top:160px; text-align:center;">
+    <span class="section-label">Ils nous font confiance</span>
+    <h1 class="section-title reveal">Nos Partenaires</h1>
+    <p class="section-intro reveal">Des marques qui partagent notre vision : le sport autrement, avec style et énergie.</p>
+
+    <!-- NOCCO -->
+    <div class="partner-card reveal">
+        <div class="partner-header">
+            <span class="event-tag">Partenaire officiel</span>
+            <h2 class="partner-name">NOCCO</h2>
+            <p class="partner-desc">NOCCO — No Carbs Company. La boisson énergisante qui accompagne la performance et le lifestyle sportif. Un partenariat naturel avec l'univers Bounce.</p>
+        </div>
+        <div class="partner-video-wrap">
+            <video class="partner-video" controls playsinline preload="metadata" muted>
+                <source src="videonocco.mp4" type="video/mp4">
+            </video>
+        </div>
+    </div>
+
+    <!-- PLACEHOLDER futurs partenaires -->
+    <div class="event-coming reveal" style="margin-top:40px;">
+        <span class="section-label" style="margin-bottom:12px;">À venir</span>
+        <p style="color:var(--text-dim); font-size:0.9rem;">Tu veux devenir partenaire Bounce ?<br>Contacte-nous pour collaborer.</p>
+        <a href="mailto:bouncemovement.contact@gmail.com" class="main-btn" style="margin-top:24px; display:inline-block;">Devenir partenaire</a>
+    </div>
+</section>
+
+<footer>
+    <div class="footer-grid">
+        <div>
+            <img src="bouncelogo1.png" class="footer-logo-img" alt="Bounce">
+            <p class="footer-tagline">Get The Movement</p>
+        </div>
+        <div>
+            <p class="footer-col-title">Navigation</p>
+            <div class="footer-links">
+                <a href="index.html">Accueil</a>
+                <a href="team.html">Team</a>
+                <a href="objectifs.html">Objectifs</a>
+                <a href="evenements.html">Événements</a>
+                <a href="partenaires.html">Partenaires</a>
+            </div>
+        </div>
+        <div>
+            <p class="footer-col-title">Contact</p>
+            <p class="footer-contact-item"><a href="https://www.instagram.com/bounce.movement/" target="_blank">Instagram — @bounce.movement</a></p>
+            <p class="footer-contact-item"><a href="https://www.tiktok.com/@bounce.movement" target="_blank">TikTok — @bounce.movement</a></p>
+            <p class="footer-contact-item"><a href="https://www.facebook.com/bounce.movement" target="_blank">Facebook — Bounce Movement</a></p>
+            <p class="footer-contact-item"><a href="mailto:bouncemovement.contact@gmail.com">bouncemovement.contact@gmail.com</a></p>
+            <p class="footer-contact-item" style="margin-top:14px; padding-top:14px; border-top:1px solid rgba(255,255,255,0.06);">
+                <a href="mailto:bouncemovement.contact@gmail.com" style="color:var(--purple);">Organiser un workshop pro →</a>
+            </p>
+        </div>
+    </div>
+    <p class="footer-copy">© 2026 Bounce Movement — Lyon</p>
+</footer>
+
+<script>
+    const revealObs = new IntersectionObserver((entries) => {
+        entries.forEach(e => { if (e.isIntersecting) e.target.classList.add("visible"); });
+    }, { threshold: 0.05, rootMargin: "0px 0px -40px 0px" });
+    document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+
+    const hamburger = document.getElementById('hamburger');
+    const navOverlay = document.getElementById('navOverlay');
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('open');
+        navOverlay.classList.toggle('open');
+        document.body.style.overflow = navOverlay.classList.contains('open') ? 'hidden' : '';
+    });
+    document.querySelectorAll('#navOverlay a').forEach(a => {
+        a.addEventListener('click', () => {
+            hamburger.classList.remove('open');
+            navOverlay.classList.remove('open');
+            document.body.style.overflow = '';
+        });
+    });
+</script>
+</body>
+</html>

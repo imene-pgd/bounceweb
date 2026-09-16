@@ -20,15 +20,27 @@
 <nav class="nav-fixed">
     <div class="nav-container">
         <img src="bouncelogo1.png" class="nav-logo" alt="Bounce">
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
         <div class="menu">
             <a href="index.html">Accueil</a>
             <a href="team.html" class="active">Team</a>
             <a href="objectifs.html">Objectifs</a>
-            <a href="tarifs.html">Tarifs</a>
+            <a href="evenements.html">Événements</a>
+            <a href="partenaires.html">Partenaires</a>
             <a href="https://www.instagram.com/bounce.movement/" target="_blank" rel="noopener noreferrer" class="nav-insta">Instagram</a>
         </div>
     </div>
 </nav>
+<div class="nav-overlay" id="navOverlay">
+    <a href="index.html">Accueil</a>
+    <a href="team.html">Team</a>
+    <a href="objectifs.html">Objectifs</a>
+    <a href="evenements.html">Événements</a>
+    <a href="partenaires.html">Partenaires</a>
+    <a href="https://www.instagram.com/bounce.movement/" target="_blank" rel="noopener noreferrer" class="nav-insta">Instagram</a>
+</div>
 
 <!-- HEADER -->
 <section class="section-pad" style="background:#050507; padding-top: 160px;">
@@ -80,7 +92,7 @@
             On cherche le <strong class="purple-text">plaisir</strong>."</p>
         </blockquote>
 
-        <a href="https://www.helloasso.com/associations/da-squad/evenements/workshop-bounce-3" target="_blank" rel="noopener noreferrer" class="main-btn reveal">Réserver ma place</a>
+        <a href="evenements.html" target="_blank" rel="noopener noreferrer" class="main-btn reveal">Réserver ma place</a>
     </div>
 </section>
 
@@ -96,14 +108,18 @@
                 <a href="index.html">Accueil</a>
                 <a href="team.html">Team</a>
                 <a href="objectifs.html">Objectifs</a>
-                <a href="tarifs.html">Tarifs</a>
+                <a href="evenements.html">Événements</a>
             </div>
         </div>
         <div>
             <p class="footer-col-title">Contact</p>
-            <p class="footer-contact-item"><a href="https://www.instagram.com/bounce.movement/" target="_blank">@bounce.movement</a></p>
+            <p class="footer-contact-item"><a href="https://www.instagram.com/bounce.movement/" target="_blank">Instagram — @bounce.movement</a></p>
+            <p class="footer-contact-item"><a href="https://www.tiktok.com/@bounce.movement" target="_blank">TikTok — @bounce.movement</a></p>
+            <p class="footer-contact-item"><a href="https://www.facebook.com/bounce.movement" target="_blank">Facebook — Bounce Movement</a></p>
             <p class="footer-contact-item"><a href="mailto:bouncemovement.contact@gmail.com">bouncemovement.contact@gmail.com</a></p>
-            <p class="footer-contact-item">06 98 19 15 95</p>
+            <p class="footer-contact-item" style="margin-top:14px; padding-top:14px; border-top:1px solid rgba(255,255,255,0.06);">
+                <a href="mailto:bouncemovement.contact@gmail.com" style="color:var(--purple);">Organiser un workshop pro →</a>
+            </p>
         </div>
     </div>
     <p class="footer-copy">© 2026 Bounce Movement — Lyon</p>
@@ -114,6 +130,21 @@
         entries.forEach(e => { if (e.isIntersecting) e.target.classList.add("visible"); });
     }, { threshold: 0.05, rootMargin: "0px 0px -40px 0px" });
     document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+
+    const hamburger = document.getElementById('hamburger');
+    const navOverlay = document.getElementById('navOverlay');
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('open');
+        navOverlay.classList.toggle('open');
+        document.body.style.overflow = navOverlay.classList.contains('open') ? 'hidden' : '';
+    });
+    document.querySelectorAll('#navOverlay a').forEach(a => {
+        a.addEventListener('click', () => {
+            hamburger.classList.remove('open');
+            navOverlay.classList.remove('open');
+            document.body.style.overflow = '';
+        });
+    });
 </script>
 </body>
 </html>
