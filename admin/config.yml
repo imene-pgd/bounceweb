@@ -1,0 +1,34 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "images"
+public_folder: "/images"
+
+locale: fr
+
+collections:
+  - name: "evenements"
+    label: "Événements"
+    folder: "_evenements"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Titre", name: "title", widget: "string" }
+      - { label: "Numéro", name: "numero", widget: "string", hint: "ex: #4" }
+      - { label: "Jour", name: "jour", widget: "string", hint: "ex: 20" }
+      - { label: "Mois", name: "mois", widget: "string", hint: "ex: Sept 2026" }
+      - { label: "Détails", name: "detail", widget: "string", hint: "ex: Lyon · 1h30 · 2 intervenantes pro" }
+      - { label: "Description", name: "description", widget: "text" }
+      - { label: "Lien de réservation", name: "lien", widget: "string", hint: "URL HelloAsso ou Stripe" }
+      - { label: "Tag", name: "tag", widget: "string", default: "Workshop" }
+
+  - name: "partenaires"
+    label: "Partenaires"
+    folder: "_partenaires"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Nom", name: "title", widget: "string" }
+      - { label: "Description", name: "description", widget: "text" }
+      - { label: "Type", name: "type", widget: "string", hint: "ex: Partenaire officiel" }
