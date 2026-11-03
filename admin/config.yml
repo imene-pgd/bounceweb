@@ -4,6 +4,9 @@ backend:
 
 locale: fr
 
+media_folder: "images"
+public_folder: "/images"
+
 collections:
   - name: "evenements"
     label: "Événements"
