@@ -44,77 +44,8 @@
     <h1 class="section-title reveal">Événements à venir</h1>
     <p class="section-intro reveal">Les prochaines sessions Bounce. Places limitées — réserve la tienne avant qu'il soit trop tard.</p>
 
-    <!-- 20 SEPT -->
-    <div class="event-card reveal">
-        <div class="event-date-block">
-            <span class="event-day">20</span>
-            <span class="event-month">Sept 2026</span>
-        </div>
-        <div class="event-info">
-            <span class="event-tag">Workshop</span>
-            <h2 class="event-title">Workshop Bounce #4</h2>
-            <p class="event-detail">Lyon · 1h30 · 2 intervenantes pro · Photocall · Goodies offerts</p>
-            <p class="event-desc">Hip-Hop, Afrobeats, Dancehall — une expérience cardio-dance immersive dans une vraie ambiance de soirée.</p>
-        </div>
-        <div class="event-cta">
-            <a href="https://www.helloasso.com/associations/da-squad/evenements/bounce-4-lyon" target="_blank" rel="noopener noreferrer" class="main-btn">Réserver</a>
-            <p class="mention">Places limitées</p>
-        </div>
-    </div>
-
-     <!-- 25 OCT -->
-    <div class="event-card reveal">
-        <div class="event-date-block">
-            <span class="event-day">25</span>
-            <span class="event-month">Oct 2026</span>
-        </div>
-        <div class="event-info">
-            <span class="event-tag">Workshop</span>
-            <h2 class="event-title">Workshop Bounce #5</h2>
-            <p class="event-detail">Lyon · 1h · 2 intervenantes pro · Photocall · Goodies offerts</p>
-            <p class="event-desc">Hip-Hop, Afrobeats, Dancehall — une expérience cardio-dance immersive dans une vraie ambiance de soirée.</p>
-        </div>
-        <div class="event-cta">
-            <a href="mailto:bouncemovement.contact@gmail.com" class="main-btn">Infos & réservation</a>
-            <p class="mention">Places limitées</p>
-        </div>
-    </div>
-
-    <!-- 15 NOV -->
-    <div class="event-card reveal">
-        <div class="event-date-block">
-            <span class="event-day">15</span>
-            <span class="event-month">Nov 2026</span>
-        </div>
-        <div class="event-info">
-            <span class="event-tag">Workshop</span>
-            <h2 class="event-title">Workshop Bounce #5</h2>
-            <p class="event-detail">Lyon · 1h30 · 2 intervenantes pro · Photocall · Goodies offerts</p>
-            <p class="event-desc">Hip-Hop, Afrobeats, Dancehall — une expérience cardio-dance immersive dans une vraie ambiance de soirée.</p>
-        </div>
-        <div class="event-cta">
-            <a href="mailto:bouncemovement.contact@gmail.com" class="main-btn">Infos & réservation</a>
-            <p class="mention">Places limitées</p>
-        </div>
-    </div>
-
-    <!-- 13 DÉC -->
-    <div class="event-card reveal">
-        <div class="event-date-block">
-            <span class="event-day">13</span>
-            <span class="event-month">Déc 2026</span>
-        </div>
-        <div class="event-info">
-            <span class="event-tag">Workshop</span>
-            <h2 class="event-title">Workshop Bounce #6</h2>
-            <p class="event-detail">Lyon · 1h30 · 2 intervenantes pro · Photocall · Goodies offerts</p>
-            <p class="event-desc">Hip-Hop, Afrobeats, Dancehall — une expérience cardio-dance immersive dans une vraie ambiance de soirée.</p>
-        </div>
-        <div class="event-cta">
-            <a href="mailto:bouncemovement.contact@gmail.com" class="main-btn">Infos & réservation</a>
-            <p class="mention">Places limitées</p>
-        </div>
-    </div>
+    <!-- EVENTS CHARGÉS DYNAMIQUEMENT -->
+    <div id="events-container"></div>
 
     <!-- SUIVRE -->
     <div class="event-coming reveal">
@@ -158,6 +89,36 @@
     const revealObs = new IntersectionObserver((entries) => {
         entries.forEach(e => { if (e.isIntersecting) e.target.classList.add("visible"); });
     }, { threshold: 0.05, rootMargin: "0px 0px -40px 0px" });
+
+    fetch('data/events.json')
+        .then(r => r.json())
+        .then(data => {
+            const container = document.getElementById('events-container');
+            data.events.forEach(ev => {
+                const cta = ev.link
+                    ? `<a href="${ev.link}" target="_blank" rel="noopener noreferrer" class="main-btn">Réserver</a>`
+                    : `<a href="mailto:bouncemovement.contact@gmail.com" class="main-btn">Infos & réservation</a>`;
+                container.innerHTML += `
+                <div class="event-card reveal">
+                    <div class="event-date-block">
+                        <span class="event-day">${ev.day}</span>
+                        <span class="event-month">${ev.month}</span>
+                    </div>
+                    <div class="event-info">
+                        <span class="event-tag">Workshop</span>
+                        <h2 class="event-title">${ev.title}</h2>
+                        <p class="event-detail">${ev.detail}</p>
+                        <p class="event-desc">${ev.desc}</p>
+                    </div>
+                    <div class="event-cta">
+                        ${cta}
+                        <p class="mention">Places limitées</p>
+                    </div>
+                </div>`;
+            });
+            document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+        });
+
     document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
 
     const hamburger = document.getElementById('hamburger');

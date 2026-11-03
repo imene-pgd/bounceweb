@@ -2,33 +2,38 @@ backend:
   name: git-gateway
   branch: main
 
-media_folder: "images"
-public_folder: "/images"
-
 locale: fr
 
 collections:
   - name: "evenements"
     label: "Événements"
-    folder: "_evenements"
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - { label: "Titre", name: "title", widget: "string" }
-      - { label: "Numéro", name: "numero", widget: "string", hint: "ex: #4" }
-      - { label: "Jour", name: "jour", widget: "string", hint: "ex: 20" }
-      - { label: "Mois", name: "mois", widget: "string", hint: "ex: Sept 2026" }
-      - { label: "Détails", name: "detail", widget: "string", hint: "ex: Lyon · 1h30 · 2 intervenantes pro" }
-      - { label: "Description", name: "description", widget: "text" }
-      - { label: "Lien de réservation", name: "lien", widget: "string", hint: "URL HelloAsso ou Stripe" }
-      - { label: "Tag", name: "tag", widget: "string", default: "Workshop" }
+    files:
+      - label: "Liste des événements"
+        name: "events"
+        file: "data/events.json"
+        fields:
+          - label: "Événements"
+            name: "events"
+            widget: "list"
+            fields:
+              - {label: "Jour (ex: 20)", name: "day", widget: "string"}
+              - {label: "Mois (ex: Sept 2026)", name: "month", widget: "string"}
+              - {label: "Titre", name: "title", widget: "string"}
+              - {label: "Détails (lieu, durée…)", name: "detail", widget: "string"}
+              - {label: "Description", name: "desc", widget: "text"}
+              - {label: "Lien HelloAsso (laisser vide si pas encore dispo)", name: "link", widget: "string", required: false}
 
   - name: "partenaires"
     label: "Partenaires"
-    folder: "_partenaires"
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - { label: "Nom", name: "title", widget: "string" }
-      - { label: "Description", name: "description", widget: "text" }
-      - { label: "Type", name: "type", widget: "string", hint: "ex: Partenaire officiel" }
+    files:
+      - label: "Liste des partenaires"
+        name: "partners"
+        file: "data/partners.json"
+        fields:
+          - label: "Partenaires"
+            name: "partners"
+            widget: "list"
+            fields:
+              - {label: "Nom", name: "name", widget: "string"}
+              - {label: "Description", name: "desc", widget: "text"}
+              - {label: "Tag (ex: Partenaire officiel)", name: "tag", widget: "string"}
