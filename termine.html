@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Événement terminé | Bounce Movement</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@400;500;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="nav-fixed">
+    <div class="nav-container">
+        <img src="bouncelogo1.png" class="nav-logo" alt="Bounce">
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+        <div class="menu">
+            <a href="index.html">Accueil</a>
+            <a href="team.html">Team</a>
+            <a href="objectifs.html">Objectifs</a>
+            <a href="evenements.html">Événements</a>
+            <a href="partenaires.html">Partenaires</a>
+            <a href="https://www.instagram.com/bounce.movement/" target="_blank" rel="noopener noreferrer" class="nav-insta">Instagram</a>
+        </div>
+    </div>
+</nav>
+<div class="nav-overlay" id="navOverlay">
+    <a href="index.html">Accueil</a>
+    <a href="team.html">Team</a>
+    <a href="objectifs.html">Objectifs</a>
+    <a href="evenements.html">Événements</a>
+    <a href="partenaires.html">Partenaires</a>
+    <a href="https://www.instagram.com/bounce.movement/" target="_blank" rel="noopener noreferrer" class="nav-insta">Instagram</a>
+</div>
+
+<section style="min-height:100vh; display:flex; align-items:center; justify-content:center; text-align:center; padding:40px 8%; background:linear-gradient(to bottom,#060608,#0d0018);">
+    <div>
+        <p class="section-label">Oups…</p>
+        <h1 style="font-family:var(--font-display); font-size:clamp(5rem,18vw,14rem); color:transparent; -webkit-text-stroke:2px rgba(255,255,255,0.12); line-height:1; margin-bottom:0;">FINI</h1>
+        <h2 class="section-title" style="margin-top:0; margin-bottom:20px;">Trop tard, cet événement est passé.</h2>
+        <p class="section-intro" style="margin-bottom:40px;">Mais le mouvement continue — les prochains workshops arrivent bientôt. Suis-nous pour ne rien rater.</p>
+        <div style="display:flex; gap:16px; justify-content:center; flex-wrap:wrap;">
+            <a href="evenements.html" class="main-btn">Voir les prochains events</a>
+            <a href="https://www.instagram.com/bounce.movement/" target="_blank" rel="noopener noreferrer" class="main-btn" style="background:transparent; border-color:rgba(255,255,255,0.3);">@bounce.movement</a>
+        </div>
+    </div>
+</section>
+
+<script>
+    const hamburger = document.getElementById('hamburger');
+    const navOverlay = document.getElementById('navOverlay');
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('open');
+        navOverlay.classList.toggle('open');
+        document.body.style.overflow = navOverlay.classList.contains('open') ? 'hidden' : '';
+    });
+    document.querySelectorAll('#navOverlay a').forEach(a => {
+        a.addEventListener('click', () => {
+            hamburger.classList.remove('open');
+            navOverlay.classList.remove('open');
+            document.body.style.overflow = '';
+        });
+    });
+</script>
+</body>
+</html>

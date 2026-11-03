@@ -144,25 +144,33 @@
         .then(r => r.json())
         .then(data => {
             const container = document.getElementById('events-container');
+            const now = new Date();
             data.events.forEach(ev => {
-                const cta = ev.link
-                    ? `<a href="${ev.link}" target="_blank" rel="noopener noreferrer" class="main-btn">Réserver</a>`
-                    : `<a href="mailto:bouncemovement.contact@gmail.com" class="main-btn">Infos & réservation</a>`;
+                const eventDate = new Date(ev.isoDate);
+                const isPast = eventDate < now;
+                let cta;
+                if (isPast) {
+                    cta = `<a href="termine.html" class="main-btn" style="opacity:0.5; cursor:default;">Événement terminé</a>`;
+                } else if (ev.link) {
+                    cta = `<a href="${ev.link}" target="_blank" rel="noopener noreferrer" class="main-btn">Réserver</a>`;
+                } else {
+                    cta = `<a href="mailto:bouncemovement.contact@gmail.com" class="main-btn">Infos & réservation</a>`;
+                }
                 container.innerHTML += `
-                <div class="event-card reveal">
+                <div class="event-card reveal${isPast ? ' event-past' : ''}">
                     <div class="event-date-block">
                         <span class="event-day">${ev.day}</span>
                         <span class="event-month">${ev.month}</span>
                     </div>
                     <div class="event-info">
-                        <span class="event-tag">Workshop</span>
+                        <span class="event-tag">${isPast ? 'Terminé' : 'Workshop'}</span>
                         <h2 class="event-title">${ev.title}</h2>
                         <p class="event-detail">${ev.detail}</p>
                         <p class="event-desc">${ev.desc}</p>
                     </div>
                     <div class="event-cta">
                         ${cta}
-                        <p class="mention">Places limitées</p>
+                        ${!isPast ? '<p class="mention">Places limitées</p>' : ''}
                     </div>
                 </div>`;
             });
