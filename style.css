@@ -45,18 +45,30 @@ img { display: block; max-width: 100%; }
    ============================================ */
 #loader {
     position: fixed; inset: 0; z-index: 10000;
-    background: var(--black);
-    display: flex; align-items: center; justify-content: center;
-    transition: opacity 0.9s ease, visibility 0.9s;
+    pointer-events: none;
 }
-.loader-content { text-align: center; display: flex; flex-direction: column; align-items: center; gap: 24px; }
-.loader-logo { height: 90px; filter: drop-shadow(0 0 30px rgba(157,50,255,0.6)); animation: pulse 1.8s infinite ease-in-out; }
-.loader-bar { width: 180px; height: 1px; background: rgba(255,255,255,0.08); border-radius: 10px; overflow: hidden; }
-.loader-progress { width: 0%; height: 100%; background: linear-gradient(90deg, var(--purple), var(--fuchsia)); animation: progressload 2s forwards ease-in-out; }
-.loader-hidden { opacity: 0; visibility: hidden; }
+.loader-panel {
+    position: absolute; top: 0; bottom: 0; width: 50%;
+    background: #060608;
+    transition: transform 0.85s cubic-bezier(0.76, 0, 0.24, 1);
+}
+.loader-left  { left: 0; }
+.loader-right { right: 0; }
+.loader-logo {
+    position: absolute; top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    height: 100px;
+    filter: drop-shadow(0 0 40px rgba(157,50,255,0.7));
+    animation: pulse 1.8s infinite ease-in-out;
+    transition: opacity 0.4s ease;
+    z-index: 1;
+}
+#loader.loader-open .loader-left  { transform: translateX(-100%); }
+#loader.loader-open .loader-right { transform: translateX(100%); }
+#loader.loader-open .loader-logo  { opacity: 0; }
+.loader-hidden { display: none; }
 
-@keyframes pulse { 0%,100%{ transform: scale(0.96); opacity: 0.75; } 50%{ transform: scale(1.04); opacity: 1; } }
-@keyframes progressload { from{ width: 0%; } to{ width: 100%; } }
+@keyframes pulse { 0%,100%{ transform: translate(-50%,-50%) scale(0.96); opacity: 0.8; } 50%{ transform: translate(-50%,-50%) scale(1.05); opacity: 1; } }
 
 /* ============================================
    NAVBAR

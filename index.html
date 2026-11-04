@@ -35,10 +35,9 @@
 <body>
 
 <div id="loader">
-    <div class="loader-content">
-        <img src="bouncelogo1.png" class="loader-logo" alt="Bounce">
-        <div class="loader-bar"><div class="loader-progress"></div></div>
-    </div>
+    <div class="loader-panel loader-left"></div>
+    <div class="loader-panel loader-right"></div>
+    <img src="bouncelogo1.png" class="loader-logo" alt="Bounce" id="loaderLogo">
 </div>
 
 <nav class="nav-fixed">
@@ -170,9 +169,12 @@
 </footer>
 
 <script>
-    // Loader
+    // Loader rideau
     window.addEventListener("load", () => {
-        setTimeout(() => document.getElementById("loader").classList.add("loader-hidden"), 1500);
+        setTimeout(() => {
+            document.getElementById("loader").classList.add("loader-open");
+            setTimeout(() => document.getElementById("loader").classList.add("loader-hidden"), 900);
+        }, 1400);
     });
 
     // Bouton son héro
