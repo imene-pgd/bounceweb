@@ -57,7 +57,7 @@ img { display: block; max-width: 100%; }
 .loader-logo {
     position: absolute; top: 50%; left: 50%;
     transform: translate(-50%, -50%);
-    height: 100px;
+    height: 200px;
     filter: drop-shadow(0 0 40px rgba(157,50,255,0.7));
     animation: pulse 1.8s infinite ease-in-out;
     transition: opacity 0.4s ease;
