@@ -83,7 +83,7 @@ img { display: block; max-width: 100%; }
     transition: background 0.3s ease;
 }
 .nav-container { display: flex; flex-direction: column; align-items: center; gap: 16px; }
-.nav-logo { height: 68px; transition: opacity 0.3s, transform 0.3s; }
+.nav-logo { height: 90px; transition: opacity 0.3s, transform 0.3s; }
 .nav-logo:hover { opacity: 0.8; transform: scale(0.97); }
 .menu { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; justify-content: center; }
 .menu a {
