@@ -194,31 +194,13 @@
 
     // Autoplay vidéos au scroll
     const actuVideos = document.querySelectorAll('.actu-video');
-
-    // Au scroll : pause + retour au début si hors champ
     const videoObs = new IntersectionObserver((entries) => {
         entries.forEach(e => {
-            if (!e.isIntersecting) { e.target.pause(); e.target.currentTime = 0; e.target.muted = true; }
+            if (e.isIntersecting) { e.target.play(); }
+            else { e.target.pause(); e.target.currentTime = 0; }
         });
-    }, { threshold: 0.2 });
+    }, { threshold: 0.3 });
     actuVideos.forEach(v => videoObs.observe(v));
-
-    // Au survol : lance avec son, coupe les autres
-    document.querySelectorAll('.video-card').forEach(card => {
-        const v = card.querySelector('.actu-video');
-        card.addEventListener('mouseenter', () => {
-            actuVideos.forEach(other => {
-                if (other !== v) { other.pause(); other.currentTime = 0; other.muted = true; }
-            });
-            v.muted = true;
-            v.play().then(() => { v.muted = false; }).catch(() => {});
-        });
-        card.addEventListener('mouseleave', () => {
-            v.pause();
-            v.currentTime = 0;
-            v.muted = true;
-        });
-    });
 
     // Hamburger menu
     const hamburger = document.getElementById('hamburger');
