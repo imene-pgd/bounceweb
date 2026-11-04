@@ -106,7 +106,7 @@
     <h2 class="section-title reveal">L'Actu</h2>
     <div class="video-grid">
         <div class="video-card reveal reveal-delay-1">
-            <video class="actu-video" controls playsinline preload="metadata" muted>
+            <video class="actu-video" playsinline preload="metadata" muted loop>
                 <source src="bounce1_opt.mp4" type="video/mp4">
             </video>
             <div class="video-info">
@@ -115,7 +115,7 @@
             </div>
         </div>
         <div class="video-card reveal reveal-delay-2">
-            <video class="actu-video" controls playsinline preload="metadata" muted>
+            <video class="actu-video" playsinline preload="metadata" muted loop>
                 <source src="itws_opt.mp4" type="video/mp4">
             </video>
             <div class="video-info">
@@ -193,13 +193,31 @@
     document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
 
     // Autoplay vidéos au scroll
+    const actuVideos = document.querySelectorAll('.actu-video');
+
+    // Au scroll : pause + retour au début si hors champ
     const videoObs = new IntersectionObserver((entries) => {
         entries.forEach(e => {
-            if (e.isIntersecting) e.target.play();
-            else { e.target.pause(); e.target.currentTime = 0; }
+            if (!e.isIntersecting) { e.target.pause(); e.target.currentTime = 0; e.target.muted = true; }
         });
-    }, { threshold: 0.4 });
-    document.querySelectorAll('.actu-video').forEach(v => videoObs.observe(v));
+    }, { threshold: 0.2 });
+    actuVideos.forEach(v => videoObs.observe(v));
+
+    // Au survol : lance avec son, coupe les autres
+    actuVideos.forEach(v => {
+        v.addEventListener('mouseenter', () => {
+            actuVideos.forEach(other => {
+                if (other !== v) { other.pause(); other.currentTime = 0; other.muted = true; }
+            });
+            v.muted = false;
+            v.play();
+        });
+        v.addEventListener('mouseleave', () => {
+            v.pause();
+            v.currentTime = 0;
+            v.muted = true;
+        });
+    });
 
     // Hamburger menu
     const hamburger = document.getElementById('hamburger');
